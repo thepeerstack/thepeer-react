@@ -35,7 +35,7 @@ export default function App() {
   })
   const handleCheckoutPayment = useCheckout({
     ...config,
-    publicKey: 'pspk_live_nuh7uwxhmzcm3bregrcik3nhsknaldd7q8ew3cvlpcwo7'
+    publicKey: 'pspk_test_m7pbk9fbjaofi92shcgxq8is4pfgxl0t0bq3g3bmrp7iq'
   })
   return (
     <div className='App'>
