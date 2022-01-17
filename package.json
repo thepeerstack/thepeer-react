@@ -1,13 +1,13 @@
 {
   "name": "thepeer-react",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Official React package for Thepeer",
   "author": "kamsy",
   "license": "MIT",
   "repository": "https://github.com/thepeerstack/thepeer-react",
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
-  "source": "src/index.tsx",
+  "source": "src/index.ts",
   "engines": {
     "node": ">=10"
   },
@@ -21,10 +21,11 @@
     "test:unit": "cross-env CI=1 react-scripts test --env=jsdom",
     "test:watch": "react-scripts test --env=jsdom",
     "predeploy": "cd example && npm install && npm run build",
-    "deploy": "gh-pages -d example/build"
+    "example": "npm run build && cd example && npm start"
   },
   "peerDependencies": {
-    "react": "^16.0.0"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^4.2.4",
