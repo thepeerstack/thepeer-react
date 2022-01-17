@@ -38,14 +38,14 @@ export default function useScript(publicKey: string) {
     script.src = thepeerJS
     script.async = true
 
-    const onScriptLoad = (): void => {
+    const onScriptLoad = () => {
       setState({
         loaded: true,
         error: false
       })
     }
 
-    const onScriptError = (): void => {
+    const onScriptError = () => {
       delete loadedScripts.src
 
       setState({
