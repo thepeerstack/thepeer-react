@@ -1,15 +1,19 @@
-export type GeneralProps = {
+type EventResponse = {
+  type: string
+  data: undefined | Object
+}
+export interface GeneralProps {
   publicKey: string
   amount: string | number
   meta?: {
     [key: string]: any
   }
   currency: string
-  onSuccess: Function
-  onError: Function
-  onClose: Function
+  onSuccess: (response: EventResponse) => void
+  onError: (response: EventResponse) => void
+  onClose: (response: EventResponse) => void
 }
 
-export type SendProps = {
+export interface SendProps {
   userReference: string
 }

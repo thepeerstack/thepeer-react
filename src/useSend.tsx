@@ -2,10 +2,14 @@ import { useEffect } from 'react'
 import useScript from './script'
 import { GeneralProps, SendProps } from './types'
 
-export type ThePeerProps = {
-  directCharge: Function
-  send: Function
-  checkout: Function
+type NestedFuncs = {
+  setup: () => void
+  open: () => void
+}
+export interface ThePeerProps {
+  directCharge: (config: GeneralProps & SendProps) => NestedFuncs
+  send: (config: GeneralProps & SendProps) => NestedFuncs
+  checkout: (config: GeneralProps) => NestedFuncs
 }
 
 declare const window: Window &
