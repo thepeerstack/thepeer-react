@@ -11,6 +11,18 @@
   "engines": {
     "node": ">=10"
   },
+  "keywords": [
+    "financial",
+    "data",
+    "API",
+    "direct-charge",
+    "direct-debit",
+    "send",
+    "checkout",
+    "p2p",
+    "thepeer",
+    "thepeer-react"
+  ],
   "scripts": {
     "build": "microbundle-crl --no-compress --format modern,cjs",
     "start": "microbundle-crl watch --no-compress --format modern,cjs",
