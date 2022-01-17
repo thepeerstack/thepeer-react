@@ -20,7 +20,7 @@ export default function useScript(publicKey: string) {
   const thepeerJS = `https://${subdomain}.thepeer.co/v1/chain.js`
 
   useEffect(() => {
-    const scriptTag = document.getElementById('thepeer_script')
+    const scriptTag = document.getElementById(`thepeer_script_${subdomain}`)
     const scriptSrc = scriptTag && scriptTag.getAttribute('src')
 
     const isValidSrc =
@@ -34,7 +34,7 @@ export default function useScript(publicKey: string) {
 
     loadedScripts.src = thepeerJS
     const script = document.createElement('script')
-    script.id = 'thepeer_script'
+    script.id = `thepeer_script_${subdomain}`
     script.src = thepeerJS
     script.async = true
 
