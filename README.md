@@ -119,4 +119,4 @@ If you're having trouble with Thepeer React or your integration, please reach ou
 
 ## License
 
-MIT © [kamsy](https://github.com/kamsy)
+[MIT](https://github.com/thepeerstack/thepeer-react/blob/master/LICENSE) for more information.
