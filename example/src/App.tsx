@@ -25,17 +25,17 @@ export default function App() {
 
   const handleSendPayment = useSend({
     ...config,
-    publicKey: 'pspk_test_zqlrmuadqxuqrhdoyhzq1b8wdgsozbwmqkmxccmymrmcy',
-    userReference: 'b557c7a0-f343-43a4-acf1-4885eb049c3d'
+    publicKey: 'pspk_test_2aj8xasztf4domzd2nphinvzkvecpbuyxldkvr3pkuvko',
+    userReference: '73f03de5-1043-4ad1-bc2e-aa4d94ebee4f'
   })
   const handleDirectChargePayment = useDirectCharge({
     ...config,
-    publicKey: 'pspk_test_m7pbk9fbjaofi92shcgxq8is4pfgxl0t0bq3g3bmrp7iq',
-    userReference: 'fd92e93b-8907-4429-86e5-9cf2fea2a9d8'
+    publicKey: 'pspk_test_2aj8xasztf4domzd2nphinvzkvecpbuyxldkvr3pkuvko',
+    userReference: '73f03de5-1043-4ad1-bc2e-aa4d94ebee4f'
   })
   const handleCheckoutPayment = useCheckout({
     ...config,
-    publicKey: 'pspk_test_m7pbk9fbjaofi92shcgxq8is4pfgxl0t0bq3g3bmrp7iq'
+    publicKey: 'pspk_test_2aj8xasztf4domzd2nphinvzkvecpbuyxldkvr3pkuvko'
   })
   return (
     <div className='App'>
