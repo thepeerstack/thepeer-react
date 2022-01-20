@@ -18,7 +18,7 @@ declare const window: Window &
   }
 
 const useSend = (props: GeneralProps & SendProps) => {
-  const [loaded, error] = useScript(props.publicKey)
+  const [loaded, error] = useScript()
 
   useEffect(() => {
     if (error) throw new Error('Unable to load thepeer send modal')
