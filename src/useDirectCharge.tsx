@@ -8,7 +8,7 @@ declare const window: Window &
   }
 
 const useDirectCharge = (props: GeneralProps & SendProps) => {
-  const [loaded, error] = useScript(props.publicKey)
+  const [loaded, error] = useScript()
 
   useEffect(() => {
     if (error) throw new Error('Unable to load thepeer direct charge modal')

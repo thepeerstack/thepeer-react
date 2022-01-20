@@ -9,7 +9,7 @@ declare const window: Window &
   }
 
 const useCheckout = (props: GeneralProps) => {
-  const [loaded, error] = useScript(props.publicKey)
+  const [loaded, error] = useScript()
 
   useEffect(() => {
     if (error) throw new Error('Unable to load thepeer checkout modal')

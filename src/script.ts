@@ -9,24 +9,19 @@ type ScriptStatusType = {
   error: boolean
 }
 
-export default function useScript(publicKey: string) {
-  const isTest = publicKey && publicKey.includes('test')
+export default function useScript() {
   const [state, setState] = useState<ScriptStatusType>({
     loaded: false,
     error: false
   })
 
-  const subdomain = isTest ? 'vision' : 'cdn'
-  const thepeerJS = `https://${subdomain}.thepeer.co/v1/chain.js`
+  const thepeerJS = 'https://cdn.thepeer.co/v1/chain.js'
 
   useEffect(() => {
-    const scriptTag = document.getElementById(`thepeer_script_${subdomain}`)
+    const scriptTag = document.getElementById('thepeer_script')
     const scriptSrc = scriptTag && scriptTag.getAttribute('src')
 
-    const isValidSrc =
-      scriptSrc && scriptSrc.includes(isTest ? 'vision' : 'cdn')
-
-    if (isValidSrc)
+    if (scriptSrc)
       return setState({
         loaded: true,
         error: false
@@ -34,7 +29,7 @@ export default function useScript(publicKey: string) {
 
     loadedScripts.src = thepeerJS
     const script = document.createElement('script')
-    script.id = `thepeer_script_${subdomain}`
+    script.id = 'thepeer_script'
     script.src = thepeerJS
     script.async = true
 

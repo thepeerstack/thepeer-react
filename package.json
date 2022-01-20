@@ -1,6 +1,10 @@
 {
   "name": "thepeer-react",
+<<<<<<< Updated upstream
   "version": "0.0.3",
+=======
+  "version": "0.0.5",
+>>>>>>> Stashed changes
   "description": "Official React package for Thepeer",
   "author": "kamsy",
   "license": "MIT",
