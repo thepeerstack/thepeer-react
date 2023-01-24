@@ -1,20 +1,20 @@
 import { useEffect } from 'react'
 import useScript from './script'
-import { GeneralProps, SendProps } from './types'
-import { ThePeerProps } from './useSend'
+import { GeneralProps, ThepeerProps } from './types'
+
 declare const window: Window &
   typeof globalThis & {
-    ThePeer: ThePeerProps
+    ThePeer: ThepeerProps
   }
 
-const useDirectCharge = (props: GeneralProps & SendProps) => {
+const useDirectCharge = (props: GeneralProps) => {
   const [loaded, error] = useScript()
 
   useEffect(() => {
     if (error) throw new Error('Unable to load thepeer direct charge modal')
   }, [error])
 
-  const handleDirectChargePayment = () => {
+  return () => {
     if (error) throw new Error('Unable to load thepeer direct charge modal')
     if (loaded) {
       const directCharge = window.ThePeer && window.ThePeer.directCharge(props)
@@ -22,7 +22,6 @@ const useDirectCharge = (props: GeneralProps & SendProps) => {
       return directCharge.open()
     }
   }
-  return handleDirectChargePayment
 }
 
 export default useDirectCharge

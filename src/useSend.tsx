@@ -1,29 +1,20 @@
 import { useEffect } from 'react'
 import useScript from './script'
-import { GeneralProps, SendProps } from './types'
-
-type NestedFuncs = {
-  setup: () => void
-  open: () => void
-}
-export interface ThePeerProps {
-  directCharge: (config: GeneralProps & SendProps) => NestedFuncs
-  send: (config: GeneralProps & SendProps) => NestedFuncs
-  checkout: (config: GeneralProps) => NestedFuncs
-}
+import { GeneralProps } from './types'
 
 declare const window: Window &
   typeof globalThis & {
-    ThePeer: ThePeerProps
+    ThePeer: any
   }
 
-const useSend = (props: GeneralProps & SendProps) => {
+const useSend = (props: GeneralProps) => {
   const [loaded, error] = useScript()
 
   useEffect(() => {
     if (error) throw new Error('Unable to load thepeer send modal')
   }, [error])
-  const handleSendPayment = () => {
+
+  return () => {
     if (error) throw new Error('Unable to load thepeer send modal')
 
     if (loaded) {
@@ -32,7 +23,6 @@ const useSend = (props: GeneralProps & SendProps) => {
       return send.open()
     }
   }
-  return handleSendPayment
 }
 
 export default useSend
