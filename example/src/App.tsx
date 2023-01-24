@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSend, useDirectCharge, useCheckout } from 'thepeer-react'
+import { useCheckout, useDirectCharge, useSend } from 'thepeer-react'
 
 type EventResponse = {
   type: string
@@ -35,7 +35,8 @@ export default function App() {
   })
   const handleCheckoutPayment = useCheckout({
     ...config,
-    publicKey: 'pspk_test_2aj8xasztf4domzd2nphinvzkvecpbuyxldkvr3pkuvko'
+    publicKey: 'pspk_test_2aj8xasztf4domzd2nphinvzkvecpbuyxldkvr3pkuvko',
+    email: 'john@doe.com'
   })
   return (
     <div className='App'>
