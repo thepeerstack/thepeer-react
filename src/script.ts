@@ -1,21 +1,16 @@
 import { useEffect, useState } from 'react'
 
-const loadedScripts: {
-  src?: string
-} = {}
-
 type ScriptStatusType = {
   loaded: boolean
   error: boolean
 }
 
+const thepeerJS = 'https://cdn.thepeer.co/v1/chain.js'
 export default function useScript() {
   const [state, setState] = useState<ScriptStatusType>({
     loaded: false,
     error: false
   })
-
-  const thepeerJS = 'https://cdn.thepeer.co/v1/chain.js'
 
   useEffect(() => {
     const scriptTag = document.getElementById('thepeer_script')
@@ -27,7 +22,6 @@ export default function useScript() {
         error: false
       })
 
-    loadedScripts.src = thepeerJS
     const script = document.createElement('script')
     script.id = 'thepeer_script'
     script.src = thepeerJS
@@ -41,8 +35,6 @@ export default function useScript() {
     }
 
     const onScriptError = () => {
-      delete loadedScripts.src
-
       setState({
         loaded: true,
         error: true
