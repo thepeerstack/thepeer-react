@@ -4,20 +4,21 @@ import { CheckoutProps, ThepeerProps } from './types'
 
 declare const window: Window &
   typeof globalThis & {
-    ThePeer: ThepeerProps
+    Thepeer: ThepeerProps
   }
 
 const useCheckout = (props: CheckoutProps) => {
+  const errorMsg = "Unable to load Thepeer's Checkout modal"
   const [loaded, error] = useScript()
 
   useEffect(() => {
-    if (error) throw new Error('Unable to load thepeer checkout modal')
+    if (error) throw new Error(errorMsg)
   }, [error])
 
   return () => {
-    if (error) throw new Error('Unable to load thepeer checkout modal')
+    if (error) throw new Error(errorMsg)
     if (loaded) {
-      const checkout = window.ThePeer && window.ThePeer.checkout(props)
+      const checkout = window.Thepeer && window.Thepeer.Checkout(props)
       checkout.setup()
       return checkout.open()
     }
