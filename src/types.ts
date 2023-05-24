@@ -35,7 +35,7 @@ type NestedFuncs = {
 }
 
 export interface ThepeerProps {
-  directCharge: (config: GeneralProps) => NestedFuncs
-  send: (config: GeneralProps) => NestedFuncs
-  checkout: (config: CheckoutProps) => NestedFuncs
+  DirectCharge: (config: GeneralProps) => NestedFuncs
+  Send: (config: GeneralProps) => NestedFuncs
+  Checkout: (config: CheckoutProps) => NestedFuncs
 }
