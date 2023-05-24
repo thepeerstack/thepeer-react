@@ -1,24 +1,25 @@
 import { useEffect } from 'react'
 import useScript from './script'
-import { GeneralProps } from './types'
+import { GeneralProps, ThepeerProps } from './types'
 
 declare const window: Window &
   typeof globalThis & {
-    ThePeer: any
+    Thepeer: ThepeerProps
   }
 
 const useSend = (props: GeneralProps) => {
+  const errorMsg = "Unable to load Thepeer's Send modal"
   const [loaded, error] = useScript()
 
   useEffect(() => {
-    if (error) throw new Error('Unable to load thepeer send modal')
+    if (error) throw new Error(errorMsg)
   }, [error])
 
   return () => {
-    if (error) throw new Error('Unable to load thepeer send modal')
+    if (error) throw new Error(errorMsg)
 
     if (loaded) {
-      const send = window.ThePeer && window.ThePeer.send(props)
+      const send = window.Thepeer && window.Thepeer.Send(props)
       send.setup()
       return send.open()
     }
